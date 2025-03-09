@@ -1,6 +1,0 @@
-```sql
-CREATE TABLE Cliente (
-  CPF VARCHAR2(11) PRIMARY KEY,
-  Nome VARCHAR2(100),
-  Telefone VARCHAR2(11)
-);
