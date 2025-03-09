@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Churrasco</title>
+    <link rel="stylesheet" href="main.css">
+    <script> function calcular() {
+        const homens = parseInt(document.getElementById('homens').value) || 0;
+        const mulheres = parseInt(document.getElementById('mulheres').value) || 0;
+        const criancas = parseInt(document.getElementById('criancas').value) || 0;
+    
+        const carne = homens * 500 + mulheres * 300 + criancas * 200;
+        const frango = homens * 200 + mulheres * 200 + criancas * 100;
+        const linguica = (homens + mulheres + criancas) * 200;
+        const refrigerante = homens * 300 + mulheres * 400 + criancas * 200;
+        const cerveja = homens * 800 + mulheres * 500;
+    
+        const formatarKg = num => (num / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        const formatarL = num => (num / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    
+        const resultado = `
+            <h2>Quantidade Necessária:</h2>
+            <p>Carne bovina: ${formatarKg(carne)} kg</p>
+            <p>Frango: ${formatarKg(frango)} kg</p>
+            <p>Linguiça: ${formatarKg(linguica)} kg</p>
+            <p>Refrigerante: ${formatarL(refrigerante)} L</p>
+            <p>Cerveja: ${formatarL(cerveja)} L</p>
+        `;
+    
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = resultado;
+        resultadoDiv.style.display = 'block';
+    }    
+     </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Churrasco</h1>
+        <div class="form-group">
+            <label for="homens">Homens:</label>
+            <input type="number" id="homens" min="0" value="0">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="mulheres">Mulheres:</label>
+            <input type="number" id="mulheres" min="0" value="0">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="criancas">Crianças:</label>
+            <input type="number" id="criancas" min="0" value="0">
+        </div>
+        <br>
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+
+    </div>
+    <br>
+    <script src="script.js"></script>
+</body>
+</html>
